@@ -13,7 +13,8 @@ class NbaWhoPlaysToday():
         self.current_year = date.today().year
 
     def get_schedule_json(self):
-        response = requests.get(self.schedule_url)
+        headers = { "Accept": "application/json"}
+        response = requests.get(self.schedule_url, headers=headers)
         response.raise_for_status()
         return response.json()
 
